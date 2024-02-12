@@ -31,5 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/test/java/com/cloud/bees/service/ProductServiceImplTest.java
-/src/test/java/com/cloud/bees/controller/ProductRestControllerTest.java
