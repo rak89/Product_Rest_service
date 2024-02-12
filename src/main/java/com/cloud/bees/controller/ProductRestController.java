@@ -71,28 +71,5 @@ public class ProductRestController {
     }
 
 
-@ExceptionHandler(value = ProductNotFoundException.class)
-public ResponseEntity<ProductRestErrorResponse> productRestException(ProductNotFoundException exception) {
-    String message = "product not found :";
-    LOGGER.error(message, exception);
-    //create ProductRestErrorResponse
-    ProductRestErrorResponse erroResponse = new ProductRestErrorResponse();
-    erroResponse.setMessage(exception.getMessage());
-    erroResponse.setStatusCode(HttpStatus.NOT_FOUND.value());
-    //return ResponseEntity
-    return new ResponseEntity<>(erroResponse, HttpStatus.NOT_FOUND);
-
-}
-@ExceptionHandler(value=Exception.class)
-public ResponseEntity<ProductRestErrorResponse> handleUnknownException(Exception exception) {
-    //create ProductRestErrorResponse
-    String message = "Internal Error Occured :";
-    LOGGER.error(message, exception);
-    ProductRestErrorResponse erroResponse = new ProductRestErrorResponse();
-    erroResponse.setMessage(exception.getMessage());
-    erroResponse.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
-    //return ResponseEntity
-    return new ResponseEntity<>(erroResponse, HttpStatus.INTERNAL_SERVER_ERROR);
-}
 
 }
